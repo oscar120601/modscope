@@ -1,0 +1,18 @@
+[package]
+name = "modscope"
+version = "0.1.0"
+edition = "2021"
+description = "Modbus RTU / TCP / RTU-over-TCP master test tool for macOS"
+
+[dependencies]
+eframe = { version = "0.32", default-features = false, features = ["default_fonts", "glow", "persistence", "wayland", "x11"] }
+tokio = { version = "1", features = ["rt", "time", "net", "macros"] }
+tokio-modbus = { version = "0.16", default-features = false, features = ["rtu", "tcp"] }
+tokio-serial = { version = "5.4", default-features = false }
+serde = { version = "1", features = ["derive"] }
+chrono = { version = "0.4.45", default-features = false, features = ["clock"] }
+serde_json = "1.0.154"
+
+[profile.release]
+opt-level = 3
+lto = true
